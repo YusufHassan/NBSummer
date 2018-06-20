@@ -1,5 +1,5 @@
 # NBSummer
-Detta repo används för att öva på Algoritmer och datastrukturer. Meningen är att jämföra kod för att se lösningar från olika perspektiv. 
+Denna repo används för att öva på algoritmer och datastrukturer. Meningen är att jämföra kod för att se lösningar från olika perspektiv. 
 
 ## Exekvera koden
 Om du använder intelliJ så går det att klona detta projekt och exkvera koden väldigt snabbt. Följ dessa steg:
