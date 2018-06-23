@@ -1,6 +1,7 @@
 package Föreläsning4;
 
 import java.util.Arrays;
+import java.util.spi.AbstractResourceBundleProvider;
 
 public class ArrayQueue<E> {
     private int front;
@@ -16,11 +17,11 @@ public class ArrayQueue<E> {
         data = (E[]) new Object[maxSize];
     }
     public boolean offer(E element){
-        if(rear-1 == front)
-            this.reallocate();
+        if(size == maxSize)
+           this.reallocate();
+        rear = (rear+1) % maxSize;
         data[rear] = element;
         size++;
-        rear = (rear+1) % maxSize;
         return true;
     }
     public String toString(){
@@ -62,32 +63,36 @@ public class ArrayQueue<E> {
         int tempFront = front;
         while (count < size){
             newData[count] = data[tempFront];
-            tempFront = (tempFront +1) % maxSize;
+            tempFront = (tempFront +1) % oldMaxSize;
             count++;
         }
         front = 0;
-        rear = oldMaxSize-1;
+        rear = size-1;
         data = newData;
+        System.out.println(Arrays.toString(newData) + "This new data!!!" );
     }
     public static void main(String[] args){
-        ArrayQueue<Integer> q = new ArrayQueue<>(2);
+        ArrayQueue<Integer> q = new ArrayQueue<>(1);
         q.offer(1);
         q.offer(2);
         q.offer(3);
-        q.poll();
         q.offer(4);
         q.offer(5);
         q.poll();
         q.offer(6);
-        System.out.println(q);
         q.offer(7);
         q.poll();
-        q.poll();
-        q.poll();
-        q.poll();
-        q.poll();
-        q.offer(3);
+        q.offer(8);
         System.out.println(q);
-
+        q.offer(9);
+        q.poll();
+        q.poll();
+        q.poll();
+        q.poll();
+        q.poll();
+        q.offer(10);
+        System.out.println(q.front+ "front");
+        System.out.println(q.rear);
+        System.out.println(q);
     }
 }
