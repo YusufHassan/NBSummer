@@ -23,6 +23,6 @@ public class CoinMachine {
        return  Integer.MIN_VALUE;
     }
     public static void main(String[] args){
-        System.out.println(CoinMachine.counter(1,7,0)+"klar");
+        System.out.println(CoinMachine.counter(1,79,0)+"klar");
     }
 }
